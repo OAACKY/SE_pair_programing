@@ -19,8 +19,36 @@ Monitor::Monitor(int argc1, char *argv1[]):argc(argc1),argv(argv1){
 */
 void Monitor::Operation() {
 	if (strcmp(argv[1], "-s") == 0) {
-		Solver solver(argv[1]);
-		return;
+		string parameter1 = argv[1];
+		string parameter2 = argv[2];
+		ifstream in(parameter2);
+		if (!in.is_open()) {
+			cout << parameter2 + "无法打开！" << endl;
+			return;
+		}
+		char ch[81];
+		char c;
+		int count = 0;
+		Solver ss(argv[2]);
+		FILE* out = fopen("sudoku.txt", "wt");
+		while (in.get(c)) {	//in >> c 会忽略空白回车符
+			if (isdigit(c)) {
+				ch[count++] = c;
+			}
+			if (count == 81) {
+				count = 0;
+				fputs(ss.solve(ch), out);
+			}
+		}
+		in.close();
+		if (count != 0) {
+			 const char* str = "存在错误格式！";
+			fputs(str, out);
+			cout << str << endl;
+		}
+		else
+			cout << "已解出" + parameter2 + "里的数独" << endl;
+		fclose(out);
 	}
 	else if (strcmp(argv[1], "-c") == 0) {
 		Generator generator(atoi(argv[2]));
