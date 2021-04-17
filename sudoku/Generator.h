@@ -3,6 +3,7 @@
 文件说明：数独生成头文件
 */
 #pragma once
+#pragma warning(disable : 4996) 
 #include <fstream>
 
 class Generator {

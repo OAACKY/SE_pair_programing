@@ -23,19 +23,19 @@ void Monitor::Operation() {
 		return;
 	}
 	else if (strcmp(argv[1], "-c") == 0) {
-		Generator generator(atoi(argv[1]));
+		Generator generator(atoi(argv[2]));
 		generator.Getfinal();
-		cout << "已生成" << argv[1] << "个终盘(相对路径为final.txt)" << endl;
+		cout << "已生成" << argv[2] << "个终盘(相对路径为final.txt)" << endl;
 		return;
 	}
 	else if (strcmp(argv[1], "-n") == 0) {
 		Generator generator(atoi(argv[2]));
-		if (argc == 2) {
+		if (argc == 3) {
 			generator.Getgame(nullptr);
 		}
 		else {
 			if (strcmp(argv[3], "-m") == 0) {
-				generator.Setdifficulty(atoi(argv[3]));
+				generator.Setdifficulty(atoi(argv[4]));
 			}
 			else if (strcmp(argv[3], "-r") == 0) {
 				generator.Setscope(argv[4]);
