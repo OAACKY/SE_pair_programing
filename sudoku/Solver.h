@@ -15,11 +15,13 @@ const int num = maxcol + maxrow * 4;	// 01阵的总元素个数,  第一个为Head元素,接着
 
 class Solver {
 public:
-	Solver(char*);
-	char* solve(char ch[]);
+	Solver();
+	char* solve(char ch[],int);
+	bool checkUnique();
 private:
-	char* path;
 	int table[9][9];	// 数独
+	int tempTable[9][9];
+	int soluTime;
 	int no;				// 元素编号
 	void transform(int table[][9], char ch[]);
 	void link();

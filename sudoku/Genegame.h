@@ -11,6 +11,7 @@ class Genegame {
 public:
 	Genegame(int);
 	void getGame(const int &l,const int &r);
+	void getUniqueGame();
 	void initial(int[]);
 private:
 	int num;

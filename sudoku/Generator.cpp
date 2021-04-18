@@ -5,6 +5,7 @@
 #include "Generator.h"
 #include "Genefinal.h"
 #include "Genegame.h"
+#include "Solver.h"
 
 Generator::Generator(int n) :number(n) {
 }
@@ -51,6 +52,7 @@ void Generator::Getgame(char *func) {
 	}
 	else {
 		//uniqueÇé¿ö
+		genegame.getUniqueGame();
 	}
 
 }

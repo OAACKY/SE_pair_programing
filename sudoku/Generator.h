@@ -5,7 +5,7 @@
 #pragma once
 #pragma warning(disable : 4996) 
 #include <fstream>
-
+#include <cstring>
 class Generator {
 public:
 	Generator(int n);
