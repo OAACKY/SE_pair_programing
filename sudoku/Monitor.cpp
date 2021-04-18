@@ -7,7 +7,7 @@
 #include "Solver.h"
 
 
-Monitor::Monitor(int argc1, char *argv1[]):argc(argc1),argv(argv1){
+Monitor::Monitor(int argc1, char *argv1[]) :argc(argc1), argv(argv1) {
 }
 /*
 -c 解的终盘数量
@@ -42,7 +42,7 @@ void Monitor::Operation() {
 		}
 		in.close();
 		if (count != 0) {
-			 const char* str = "存在错误格式！";
+			const char* str = "存在错误格式！";
 			fputs(str, out);
 			cout << str << endl;
 		}
