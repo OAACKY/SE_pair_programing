@@ -13,14 +13,26 @@ static char str[163];
 static int index;
 
 #define N 150
-Solver::Solver(char* path) :path(path) {
-	this->path = path;
+Solver::Solver() {
+}
+
+bool Solver::checkUnique() {
+	bool diff = false;
+	for (int i = 0; i < 9; i++) {
+		for (int j = 0; j < 9; j++) {
+			if (table[i][j] != tempTable[i][j])
+				diff = false;
+		}
+	}
+	return true;
 }
 
 
-char* Solver::solve(char ch[]) {
+char* Solver::solve(char ch[],int temp) {
 	index = 0;
 	transform(table, ch);
+	transform(table, ch);
+	soluTime = temp;
 	link();
 	int select = 0;
 	for (size_t i = 0; i < 9; i++) {
@@ -37,6 +49,7 @@ char* Solver::solve(char ch[]) {
 	}
 
 	(dfs(select + 1));
+
 
 	for (size_t i = 0; i < 9; i++) {
 		for (size_t j = 0; j < 8; j++) {
@@ -150,8 +163,17 @@ void Solver::restore(int col) {
 }
 
 bool Solver::dfs(int select) {
-	if (select > 81)	// 已选够
-		return true;
+	if (select > 81) {	// 已选够
+		if (!soluTime) {
+			soluTime++;
+			for (int i = 0; i < 9; i++)
+				for (int j = 0; j < 9; j++)
+					tempTable[i][j] = table[i][j];
+			return false;
+		}
+		else
+			return true;
+	}
 	/* 遍历列标元素，选一个元素最少的列（回溯率低） */
 	int col = 0;
 	int min = INT_MAX;

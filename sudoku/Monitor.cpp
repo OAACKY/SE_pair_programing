@@ -29,15 +29,18 @@ void Monitor::Operation() {
 		char ch[81];
 		char c;
 		int count = 0;
-		Solver ss(argv[2]);
+		Solver ss;
 		FILE* out = fopen("sudoku.txt", "wt");
 		while (in.get(c)) {	//in >> c »áºöÂÔ¿Õ°×»Ø³µ·û
-			if (isdigit(c)) {
-				ch[count++] = c;
+			if (isdigit(c)||c=='$') {
+				if (c == '$')
+					ch[count++] = '0';
+				else
+					ch[count++] = c;
 			}
 			if (count == 81) {
 				count = 0;
-				fputs(ss.solve(ch), out);
+				fputs(ss.solve(ch,1), out);
 			}
 		}
 		in.close();
