@@ -14,7 +14,7 @@ public:
 	void Setdifficulty(int);
 	void Setscope(char*);
 	void Setunique();
-private:
+//private:
 	int number;
 	int difficulty;
 	int begin,end;

@@ -15,9 +15,9 @@ public:
 	void Myswap(int&, int&, int&, int&, int&, int&);
 	void ExchangeRow(const int&,const int&);
 	void ExchangeColumn(const int&,const int&);
-private:
+//private:
 	int n;
 	int tempNum;
-	int beginTable[9][9];
-	int localTable[9][9];
+	int beginTable[9][9] = {};
+	int localTable[9][9] = {};
 };

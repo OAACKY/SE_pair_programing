@@ -13,7 +13,7 @@ public:
 	void getGame(const int &l,const int &r);
 	void getUniqueGame();
 	void initial(int[]);
-private:
+//private:
 	int num;
-	int table[9][9];
+	int table[9][9] = {};
 };

@@ -8,6 +8,10 @@
 #include "Solver.h"
 
 Generator::Generator(int n) :number(n) {
+	difficulty = 0;
+	begin = 0;
+	end = 0;
+	isUnique = 0;
 }
 
 void Generator::Setdifficulty(int dif) {

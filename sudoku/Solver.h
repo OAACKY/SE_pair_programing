@@ -18,7 +18,7 @@ public:
 	Solver();
 	char* solve(char ch[],int);
 	bool checkUnique();
-private:
+//private:
 	int table[9][9];	// Êý¶À
 	int tempTable[9][9];
 	int soluTime;
